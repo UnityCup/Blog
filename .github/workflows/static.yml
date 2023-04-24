@@ -40,7 +40,7 @@ jobs:
       - name: Dotnet Build Restore
         run: dotnet build
       - name: Dotnet Run
-        run: dotnet run
+        run: dotnet run --project BlogSystem/BlogSystem
       - name: Setup Pages
         uses: actions/configure-pages@v3
       - name: Upload artifact
