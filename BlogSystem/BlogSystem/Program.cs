@@ -1,3 +1,4 @@
-﻿Console.WriteLine("Hello, World!");
+﻿const string path = "Build";
 
-File.WriteAllText(@"Build/test2.html", "HOGEEEEEEEEEEEEEEEEE");
+if (!Directory.Exists(path)) Directory.CreateDirectory(path);
+File.WriteAllText(Path.Join(path, @"test2.html"), "HOGEEEEEEEEEEEEEEEEE");
