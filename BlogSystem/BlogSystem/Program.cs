@@ -5,15 +5,17 @@ public class Program
     const string buildPath = "Build";
     const string blogPath = "Blog";
 
-    public static void Main(string[] args)
+    public Program()
     {
         BlogReader blogReader = new BlogReader(blogPath);
+        blogReader.Read();
 
-        if (!Directory.Exists(buildPath)) Directory.CreateDirectory(buildPath);
+        BlogWriter blogWriter = new BlogWriter(buildPath, blogReader.pages);
+        blogWriter.Write();
 
-        Console.WriteLine(File.ReadAllText("Blog/test.html"));
-
-        File.WriteAllText(Path.Join(buildPath, @"test2.html"), "HOGEEEEEEEEEEEEEEEEE");
         File.WriteAllText(Path.Join(buildPath, @"index.html"), "this is index.");
     }
+
+    public static void Main(string[] args)
+        => new Program();
 }
