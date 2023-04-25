@@ -1,8 +1,19 @@
-﻿const string path = "Build";
+﻿namespace UnityCup.BlogSystem;
 
-if (!Directory.Exists(path)) Directory.CreateDirectory(path);
+public class Program
+{
+    const string buildPath = "Build";
+    const string blogPath = "Blog";
 
-Console.WriteLine(File.ReadAllText("Blog/test.html"));
+    public static void Main(string[] args)
+    {
+        BlogReader blogReader = new BlogReader(blogPath);
 
-File.WriteAllText(Path.Join(path, @"test2.html"), "HOGEEEEEEEEEEEEEEEEE");
-File.WriteAllText(Path.Join(path, @"index.html"), "this is index.");
+        if (!Directory.Exists(buildPath)) Directory.CreateDirectory(buildPath);
+
+        Console.WriteLine(File.ReadAllText("Blog/test.html"));
+
+        File.WriteAllText(Path.Join(buildPath, @"test2.html"), "HOGEEEEEEEEEEEEEEEEE");
+        File.WriteAllText(Path.Join(buildPath, @"index.html"), "this is index.");
+    }
+}
