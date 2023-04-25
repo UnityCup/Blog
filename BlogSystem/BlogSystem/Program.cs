@@ -13,7 +13,7 @@ public class Program
         BlogWriter blogWriter = new BlogWriter(buildPath, blogReader.pages);
         blogWriter.Write();
 
-        File.WriteAllText(Path.Join(buildPath, @"index.html"), "this is index.");
+        File.WriteAllText(Path.Join(buildPath, @"index.html"), "<p>This is index Page.</p><a href=\"TestPage\">TestPage</a>");
     }
 
     public static void Main(string[] args)
