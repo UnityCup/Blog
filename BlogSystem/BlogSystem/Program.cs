@@ -1,3 +1,3 @@
 ﻿Console.WriteLine("Hello, World!");
 
-File.WriteAllText(@"test2.html", "HOGEEEEEEEEEEEEEEEEE");
+File.WriteAllText(@"Build/test2.html", "HOGEEEEEEEEEEEEEEEEE");
