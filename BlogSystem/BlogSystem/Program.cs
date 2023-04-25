@@ -1,19 +1,38 @@
-﻿namespace UnityCup.BlogSystem;
+﻿using System.Text;
+
+namespace UnityCup.BlogSystem;
 
 public class Program
 {
     const string buildPath = "Build";
     const string blogPath = "Blog";
+    private readonly BlogReader reader;
+    private readonly BlogWriter writer;
 
     public Program()
     {
-        BlogReader blogReader = new BlogReader(blogPath);
-        blogReader.Read();
+        reader = new(blogPath);
+        writer = new(buildPath);
 
-        BlogWriter blogWriter = new BlogWriter(buildPath, blogReader.pages);
-        blogWriter.Write();
+        reader.Read();
+        writer.Write(reader.pages);
 
-        File.WriteAllText(Path.Join(buildPath, @"index.html"), "<p>This is index Page.</p><a href=\"TestPage\">TestPage</a>");
+        File.WriteAllText(
+            Path.Join(buildPath, @"index.html"),
+            GenerateIndexPage(reader.pages.ToArray())
+        );
+    }
+
+    public string GenerateIndexPage(BlogPage[] pages)
+    {
+        StringBuilder builder = new();
+
+        foreach (var page in pages)
+        {
+            builder.Append($"<a href=\"{page.name}\">{page.name}</a>");
+        }
+
+        return builder.ToString();
     }
 
     public static void Main(string[] args)

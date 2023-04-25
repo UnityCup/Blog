@@ -5,12 +5,10 @@ namespace UnityCup.BlogSystem;
 public class BlogWriter
 {
     public readonly string buildPath;
-    private readonly ReadOnlyCollection<BlogPage> pages;
 
-    public BlogWriter(string buildPath, ReadOnlyCollection<BlogPage> pages)
+    public BlogWriter(string buildPath)
     {
         this.buildPath = buildPath;
-        this.pages = pages;
     }
 
     private void InitializeBuildDirectory()
@@ -26,7 +24,7 @@ public class BlogWriter
         else Directory.CreateDirectory(buildPath);
     }
 
-    public void Write()
+    public void Write(ReadOnlyCollection<BlogPage> pages)
     {
         InitializeBuildDirectory();
 
