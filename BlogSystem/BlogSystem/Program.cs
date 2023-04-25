@@ -29,7 +29,7 @@ public class Program
 
         foreach (var page in pages)
         {
-            builder.Append($"<a href=\"{page.name}\">{page.name}</a>");
+            builder.AppendLine($"<a href=\"{page.name}\">{page.name}</a>");
         }
 
         return builder.ToString();
