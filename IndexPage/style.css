@@ -1,0 +1,113 @@
+body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    background: #0B0B16;
+}
+
+header {
+    width: 100%;
+    height: 70px;
+    margin-top: 0px;
+    background: #100F20;
+}
+
+#headerContainer {
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+}
+
+#headerLogo {
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-top: 0px;
+    height: 65px;
+}
+
+#headerUnityCupLogo {
+    margin: 10px;
+    margin-left: 40px;
+    width: 50px;
+    height: 50px;
+}
+
+#articleContainer {
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+}
+
+.article {
+    display: flex;
+    margin: 40px;
+    height: 160px;
+
+    background: #171624;
+    border-radius: 10px;
+}
+
+.articleContents {
+    margin: 20px;
+}
+
+.articleTitle {
+    margin: 0px;
+    height: 60px;
+
+    font-family: 'Zen Kaku Gothic New';
+    font-style: normal;
+    font-weight: 900;
+    font-size: 20px;
+    line-height: 29px;
+    display: flex;
+    align-items: first baseline;
+
+    text-decoration: none;
+
+    color: #FFFFFF;
+}
+
+.authorContents {
+    margin-top: 30px;
+    display: flex;
+}
+
+.articleLogoBackGround {
+    margin: 20px;
+    padding: 0;
+    width: 120px;
+    height: 120px;
+
+    background: #2F2D41;
+    border-radius: 10px;
+}
+
+.articleLogo {
+    margin: 20px 20px;
+
+    width: 80px;
+    height: 80px;
+}
+
+.authorLogo {
+    width: 30px;
+    height: 30px;
+    border-radius: 15px;
+}
+
+.authorName {
+    margin: 0 auto 0 10px;
+    font-family: 'Zen Kaku Gothic New';
+    font-style: normal;
+    font-weight: normal;
+    font-size: 19px;
+    line-height: 29px;
+    display: flex;
+    align-items: first baseline;
+
+    color: #FFFFFF;
+}
+
+@media all and (max-width:411px) {}
