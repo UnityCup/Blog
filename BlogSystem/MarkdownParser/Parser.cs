@@ -47,6 +47,8 @@ public class Parser
         {
             case TokenType.Headline1:
                 return ParseHeadLine1Statement();
+            case TokenType.Sentence:
+                return ParseSentenceStatement();
             default:
                 return null;
         }
@@ -55,6 +57,13 @@ public class Parser
     private HeadLine1Statement? ParseHeadLine1Statement()
     {
         HeadLine1Statement statement = new HeadLine1Statement(currentToken.literal);
+        ReadToken();
+        return statement;
+    }
+
+    private SentenceStatement? ParseSentenceStatement()
+    {
+        SentenceStatement statement = new SentenceStatement(currentToken.literal);
         ReadToken();
         return statement;
     }
