@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlogSystem", "blogsystem\Bl
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarkdownParser", "MarkdownParser\MarkdownParser.csproj", "{EB40FAA5-21C1-4DCE-A9CC-EFA02058E0C8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParserTest", "ParserTest\ParserTest.csproj", "{3AC69439-5726-47FE-9CD6-B0F5837B12FD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +26,9 @@ Global
 		{EB40FAA5-21C1-4DCE-A9CC-EFA02058E0C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EB40FAA5-21C1-4DCE-A9CC-EFA02058E0C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EB40FAA5-21C1-4DCE-A9CC-EFA02058E0C8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3AC69439-5726-47FE-9CD6-B0F5837B12FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3AC69439-5726-47FE-9CD6-B0F5837B12FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3AC69439-5726-47FE-9CD6-B0F5837B12FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3AC69439-5726-47FE-9CD6-B0F5837B12FD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
