@@ -11,8 +11,8 @@ public class Parser
     public Parser(Lexer lexer)
     {
         this.lexer = lexer;
-        nextToken = lexer.NextToken();
         currentToken = lexer.NextToken();
+        nextToken = lexer.NextToken();
     }
 
     public Root Parse()
@@ -45,7 +45,7 @@ public class Parser
     {
         switch (currentToken.type)
         {
-            case TokenType.Headline1:
+            case TokenType.Sharp:
                 return ParseHeadLine1Statement();
             case TokenType.Sentence:
                 return ParseSentenceStatement();
@@ -54,15 +54,20 @@ public class Parser
         }
     }
 
-    private HeadLine1Statement? ParseHeadLine1Statement()
+    private HeadLineStatement? ParseHeadLine1Statement()
     {
-        HeadLine1Statement statement = new HeadLine1Statement(currentToken.literal);
-        ReadToken();
+        if (currentToken.type != TokenType.Sharp) return null;
+        ReadToken(); // #を飛ばす
+        SentenceStatement? sentenceStatement = ParseSentenceStatement();
+        if (sentenceStatement is null) return null;
+
+        HeadLineStatement statement = new HeadLineStatement(sentenceStatement);
         return statement;
     }
 
     private SentenceStatement? ParseSentenceStatement()
     {
+        if (currentToken.type != TokenType.Sentence) return null;
         SentenceStatement statement = new SentenceStatement(currentToken.literal);
         ReadToken();
         return statement;
