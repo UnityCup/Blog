@@ -26,7 +26,7 @@ public class Lexer
         this.source = source;
     }
 
-    public void NextChar()
+    public void ReadChar()
     {
         currentPosition++;
     }
@@ -40,7 +40,7 @@ public class Lexer
         {
         }
 
-        NextChar();
+        ReadChar();
 
         return new Token(literal, type);
     }
