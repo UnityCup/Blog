@@ -9,7 +9,8 @@ public class Program
     public Program()
     {
         this.lexer = new Lexer(@"aaaaaaa
-#afwfa
+bbbbbbbb#afafw
+# afwfa
 #kkkkkk
 ## feffeffe
 fafwafeef");
