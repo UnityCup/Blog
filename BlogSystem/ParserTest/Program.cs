@@ -4,11 +4,11 @@ namespace UnityCup.ParserTest;
 
 public class Program
 {
-    private readonly Parser lexer;
+    private readonly Lexer lexer;
 
     public Program()
     {
-        this.lexer = new Parser(@"aaaaaaa
+        this.lexer = new Lexer(@"aaaaaaa
 bbbbbbbb#afafw
 # afwfa
 #kkkkkk

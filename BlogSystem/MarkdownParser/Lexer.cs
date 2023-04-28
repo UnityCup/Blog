@@ -2,7 +2,7 @@
 
 namespace UnityCup.MarkdownParser;
 
-public class Parser
+public class Lexer
 {
     public readonly string source;
     public int currentPosition { get; private set; }
@@ -23,7 +23,7 @@ public class Parser
         }
     }
 
-    public Parser(string source)
+    public Lexer(string source)
     {
         this.source = source;
         this.source = this.source.Replace("\r\n", "\n");
