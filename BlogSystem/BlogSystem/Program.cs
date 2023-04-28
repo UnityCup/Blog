@@ -4,8 +4,8 @@ namespace UnityCup.BlogSystem;
 
 public class Program
 {
-    const string buildPath = "Build";
-    const string blogPath = "Blog";
+    const string buildPath = "../../Build";
+    const string blogPath = "../../Blog";
     private readonly BlogReader reader;
     private readonly BlogWriter writer;
 
