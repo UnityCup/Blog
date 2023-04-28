@@ -67,6 +67,10 @@ public class Lexer
     {
         StringBuilder builder = new StringBuilder();
 
+        ReadChar(); // #の読み飛ばし
+
+        while (currentChar == ' ') ReadChar(); // #の後の空白の読み飛ばし
+
         while (true)
         {
             if (currentChar == '\n') break;
