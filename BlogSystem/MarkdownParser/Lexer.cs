@@ -10,7 +10,7 @@ public class Lexer
     {
         get
         {
-            if (source.Length <= currentPosition) return ' ';
+            if (source.Length <= currentPosition) return (char)0;
             return source[currentPosition];
         }
     }
@@ -18,7 +18,7 @@ public class Lexer
     {
         get
         {
-            if (source.Length <= currentPosition + 1) return ' ';
+            if (source.Length <= currentPosition + 1) return (char)0;
             return source[currentPosition + 1];
         }
     }
@@ -26,6 +26,8 @@ public class Lexer
     public Lexer(string source)
     {
         this.source = source;
+        this.source = this.source.Replace("\r\n", "\n");
+        this.source = this.source.Replace("\r", "\n");
     }
 
     public void ReadChar()
@@ -41,10 +43,16 @@ public class Lexer
         switch (currentChar)
         {
             case '#':
-                literal = ReadSentence();
+                literal = ReadHeadline();
                 type = TokenType.Headline1;
                 break;
             default:
+                if (currentChar == (char)0)
+                {
+                    literal = "";
+                    type = TokenType.EOF;
+                    break;
+                }
                 literal = ReadSentence();
                 type = TokenType.Sentence;
                 break;
@@ -55,13 +63,29 @@ public class Lexer
         return new Token(literal, type);
     }
 
-    public string ReadSentence()
+    private string ReadHeadline()
+    {
+        StringBuilder builder = new StringBuilder();
+
+        while (true)
+        {
+            if (currentChar == '\n') break;
+            if (currentChar == (char)0) break;
+            builder.Append(currentChar);
+            ReadChar();
+        }
+
+        return builder.ToString();
+    }
+
+    private string ReadSentence()
     {
         StringBuilder builder = new StringBuilder();
 
         while (true)
         {
             if (currentChar == '\n' && nextChar == '#') break;
+            if (currentChar == (char)0) break;
             builder.Append(currentChar);
             ReadChar();
         }
