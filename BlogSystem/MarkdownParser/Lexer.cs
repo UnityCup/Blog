@@ -33,6 +33,15 @@ public class Lexer
 
     public Token NextToken()
     {
+        string literal = "";
+        TokenType type = TokenType.Illegal;
 
+        switch (currentChar)
+        {
+        }
+
+        NextChar();
+
+        return new Token(literal, type);
     }
 }
