@@ -1,4 +1,6 @@
-﻿namespace UnityCup.MarkdownParser;
+﻿using System.Text;
+
+namespace UnityCup.MarkdownParser;
 
 public class Lexer
 {
@@ -43,5 +45,19 @@ public class Lexer
         ReadChar();
 
         return new Token(literal, type);
+    }
+
+    public string ReadSentence()
+    {
+        StringBuilder builder = new StringBuilder();
+
+        while (true)
+        {
+            if (currentChar == '\n' && nextChar == '#') break;
+            builder.Append(currentChar);
+            ReadChar();
+        }
+
+        return builder.ToString();
     }
 }
