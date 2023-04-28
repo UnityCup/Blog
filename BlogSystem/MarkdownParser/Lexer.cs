@@ -40,6 +40,10 @@ public class Lexer
 
         switch (currentChar)
         {
+            case '#':
+                literal = ReadSentence();
+                type = TokenType.Headline1;
+                break;
         }
 
         ReadChar();
