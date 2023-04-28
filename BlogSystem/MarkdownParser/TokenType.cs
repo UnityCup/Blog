@@ -6,4 +6,5 @@ public enum TokenType
     Headline1,
 
     Illegal,
+    EOF
 }
