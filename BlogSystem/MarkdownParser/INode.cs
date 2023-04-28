@@ -1,0 +1,6 @@
+namespace UnityCup.MarkdownParser;
+
+public interface INode
+{
+
+}
