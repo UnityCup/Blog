@@ -3,12 +3,14 @@ namespace UnityCup.BlogSystem;
 public class BlogPage
 {
     public readonly string name;
-    public readonly string data;
+    public readonly string source;
+    public readonly string htmlData;
 
-    public BlogPage(string name, string data)
+    public BlogPage(string name, string source)
     {
         Console.WriteLine(name);
         this.name = name;
-        this.data = data;
+        this.source = source;
+        this.htmlData = new BlogParser(source).Parse();
     }
 }

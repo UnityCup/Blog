@@ -30,7 +30,7 @@ public class BlogWriter
 
         foreach (var page in pages)
         {
-            File.WriteAllText(Path.Combine(buildPath, $"{page.name}.html"), page.data);
+            File.WriteAllText(Path.Combine(buildPath, $"{page.name}.html"), page.htmlData);
         }
     }
 }
