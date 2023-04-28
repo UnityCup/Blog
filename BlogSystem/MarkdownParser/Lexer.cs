@@ -43,8 +43,9 @@ public class Lexer
         switch (currentChar)
         {
             case '#':
-                literal = ReadHeadline();
-                type = TokenType.Headline1;
+                literal = "#";
+                type = TokenType.Sharp;
+                SkipWhiteSpace(); // #後のスペースを削除
                 break;
             default:
                 if (currentChar == (char)0)
@@ -63,13 +64,9 @@ public class Lexer
         return new Token(literal, type);
     }
 
-    private string ReadHeadline()
+    private string ReadSentence()
     {
         StringBuilder builder = new StringBuilder();
-
-        ReadChar(); // #の読み飛ばし
-
-        while (currentChar == ' ') ReadChar(); // #の後の空白の読み飛ばし
 
         while (true)
         {
@@ -82,18 +79,11 @@ public class Lexer
         return builder.ToString();
     }
 
-    private string ReadSentence()
+    private void SkipWhiteSpace()
     {
-        StringBuilder builder = new StringBuilder();
-
-        while (true)
+        while (nextChar == ' ')
         {
-            if (currentChar == '\n' && nextChar == '#') break;
-            if (currentChar == (char)0) break;
-            builder.Append(currentChar);
             ReadChar();
         }
-
-        return builder.ToString();
     }
 }
