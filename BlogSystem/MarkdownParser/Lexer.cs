@@ -44,6 +44,10 @@ public class Lexer
                 literal = ReadSentence();
                 type = TokenType.Headline1;
                 break;
+            default:
+                literal = ReadSentence();
+                type = TokenType.Sentence;
+                break;
         }
 
         ReadChar();
