@@ -30,7 +30,7 @@ header {
 
 #headerUnityCupLogo {
     margin: 10px;
-    margin-left: 40px;
+    margin-left: 80px;
     width: 50px;
     height: 50px;
 }
@@ -44,6 +44,8 @@ header {
 .article {
     display: flex;
     margin: 40px;
+    margin-left: 80px;
+    margin-right: 80px;
     height: 160px;
 
     background: #171624;
