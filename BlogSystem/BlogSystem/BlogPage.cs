@@ -11,6 +11,6 @@ public class BlogPage
         Console.WriteLine(name);
         this.name = name;
         this.source = source;
-        this.htmlData = new BlogParser(source).Parse();
+        this.htmlData = new BlogParser(source).Parse(name);
     }
 }
